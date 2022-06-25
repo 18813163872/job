@@ -11,7 +11,6 @@ public class Dog {
     public static void doTask() {
         for (int i = 0; i < TaskCenter.task.size(); i++) {
             TaskStrategy taskStrategy = (TaskStrategy) TaskCenter.task.get(i).getKey();
-            System.out.println("当前任务" + taskStrategy.getTaskName());
             if (TaskCenter.taskDone.contains(taskStrategy.getTaskName())) {
                 return;
             }

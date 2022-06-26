@@ -18,6 +18,19 @@ class JobApplicationTests {
         taskCenter.add(new Pair(taskStrategy1, taskDefinition1));
         taskCenter.add(new Pair(taskStrategy2, taskDefinition2));
         Dog.doTask();
+
+        //  get task
+        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t.getKey()));
+
+        //  update task
+        TaskStrategy taskStrategy3 = new TaskStrategy(10, 10000, "task2");
+        Pair pair = new Pair(taskStrategy3, taskDefinition2);
+        taskCenter.add(new Pair(taskStrategy3, taskDefinition2));
+        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t));
+        Dog.doTask();
+
+        //  remove task
+        taskCenter.remove(pair);
     }
 
 }

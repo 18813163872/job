@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class TaskStrategy implements Serializable {
     /**
-     * do num when -1 can Has been performed
+     * do num
      */
     private Integer doNum;
     /**

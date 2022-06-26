@@ -14,19 +14,19 @@ class JobApplicationTests {
         TaskDefinition taskDefinition2 = new Task2Impl();
         TaskCenter taskCenter = new TaskCenter();
         TaskStrategy taskStrategy1 = new TaskStrategy(1, null, "task1");
-        TaskStrategy taskStrategy2 = new TaskStrategy(10, 10000, "task2");
+        TaskStrategy taskStrategy2 = new TaskStrategy(10, 1000, "task2");
         taskCenter.add(new Pair(taskStrategy1, taskDefinition1));
         taskCenter.add(new Pair(taskStrategy2, taskDefinition2));
         Dog.doTask();
 
         //  get task
-        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t.getKey()));
+        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t.getKey().getTaskName()));
 
         //  update task
-        TaskStrategy taskStrategy3 = new TaskStrategy(10, 10000, "task2");
+        TaskStrategy taskStrategy3 = new TaskStrategy(3, 1000, "task2");
         Pair pair = new Pair(taskStrategy3, taskDefinition2);
         taskCenter.add(new Pair(taskStrategy3, taskDefinition2));
-        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t));
+        TaskCenter.task.parallelStream().forEach(t-> System.out.println(t.getKey().getTaskName()));
         Dog.doTask();
 
         //  remove task
